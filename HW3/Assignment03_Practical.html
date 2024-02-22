@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Assignment02_Jupyter_Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Assignment03_Practical</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14580,7 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Important-instruction">Important instruction<a class="anchor-link" href="#Important-instruction">&#182;</a></h2><p>For programming exercises that only editing, only edit the code as shown in the following format.</p>
+<h2 id="Important-instruction">Important instruction<a class="anchor-link" href="#Important-instruction">&#182;</a></h2><p>For programming exercises only edit the code as shown in the following format.</p>
 
 <pre><code>##############################################
 
@@ -14603,19 +14603,8 @@ print(var1 + var4)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Question-7:-Importing-and-loading-data">Question 7: Importing and loading data<a class="anchor-link" href="#Question-7:-Importing-and-loading-data">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Pandas is a very important library in Python that helps in importing, loading and manipulation of data. Below is an example on how data from a Comma-separated values (CSV) file can be converted to a pandas DataFrame which we will be using to perform operations on.</strong></p>
-<p><em>You can experiment and know more about the different data file formats that can be used with Pandas referring to <a href="https://pandas.pydata.org/docs/user_guide/io.html">https://pandas.pydata.org/docs/user_guide/io.html</a>.</em></p>
+<h2 id="Question-7:-Maximum-Likelihood-Estimation-for-Gaussian-Distribution">Question 7: Maximum Likelihood Estimation for Gaussian Distribution<a class="anchor-link" href="#Question-7:-Maximum-Likelihood-Estimation-for-Gaussian-Distribution">&#182;</a></h2><p>You are given a dataset <code>data_points</code> that follows a Gaussian distribution. Your task is to find mean, variance and log likelihood by completing the functions <code>calculate_mean_variance</code> and <code>gaussian_log_likelihood</code>.</p>
+<p><em>For more information, refer to <strong>4.2.3 Gaussian (Normal) Density</strong> section of <strong>Introduction to Machine Learning, 4th Edition, The MIT Press, 2020</strong> by Ethem Alpaydın.</em></p>
 
 </div>
 </div>
@@ -14625,17 +14614,41 @@ print(var1 + var4)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">student_data_csv</span> <span class="o">=</span> <span class="s1">'https://raw.github.iu.edu/kjillela/datasets_CSCI-B455/main/assignment%202/question9/student_data.csv?token=GHSAT0AAAAAAAAAVS2XHS3FV5DA3SUTRNQKZOFCL6A'</span>
+<span class="k">def</span> <span class="nf">calculate_mean_variance</span><span class="p">(</span><span class="n">data_points</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_points</span><span class="p">)</span>
+    <span class="c1">############################################################</span>
+    <span class="c1">#Edit the following code</span>
 
-<span class="n">data_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">student_data_csv</span><span class="p">)</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_points</span><span class="p">)</span>
+    <span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">data_points</span> <span class="o">-</span> <span class="n">mean</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_points</span><span class="p">)</span>
+    <span class="c1">############################################################</span>
+    <span class="k">return</span> <span class="n">mean</span><span class="p">,</span> <span class="n">variance</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Displaying data_csv</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-<span class="n">data_csv</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">gaussian_log_likelihood</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">data_points</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_points</span><span class="p">)</span>
+    <span class="c1">############################################################</span>
+    <span class="c1">#Edit the following code</span>
+
+    <span class="n">log_likelihood</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_points</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_points</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">)))</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">data_points</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)))</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">variance</span>
+    <span class="c1">############################################################</span>
+    <span class="k">return</span> <span class="n">log_likelihood</span>
+
+<span class="n">data_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">5.6</span><span class="p">])</span>
+
+<span class="c1"># Calculating mean and variance</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">variance</span> <span class="o">=</span> <span class="n">calculate_mean_variance</span><span class="p">(</span><span class="n">data_points</span><span class="p">)</span>
+
+<span class="c1"># Calculating log likelihood</span>
+<span class="n">log_likelihood</span> <span class="o">=</span> <span class="n">gaussian_log_likelihood</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">data_points</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Mean:"</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance:"</span><span class="p">,</span> <span class="n">variance</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Log Likelihood:"</span><span class="p">,</span> <span class="n">log_likelihood</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14657,285 +14670,11 @@ print(var1 + var4)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Displaying data_csv
-
+<pre>Mean: 3.4599999999999995
+Variance: 2.2543999999999995
+Log Likelihood: -19.332700721429056
 </pre>
 </div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-
-  <div id="df-d45b604d-e045-4d75-969e-8c4b07378571" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Grade</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Alice</td>
-      <td>20</td>
-      <td>85</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Bob</td>
-      <td>22</td>
-      <td>92</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Charlie</td>
-      <td>21</td>
-      <td>78</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>David</td>
-      <td>23</td>
-      <td>95</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d45b604d-e045-4d75-969e-8c4b07378571')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-d45b604d-e045-4d75-969e-8c4b07378571 button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d45b604d-e045-4d75-969e-8c4b07378571');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-<div id="df-826135c6-f1bd-4b50-9825-fe5ebca86961">
-  <button class="colab-df-quickchart" onclick="quickchart('df-826135c6-f1bd-4b50-9825-fe5ebca86961')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-826135c6-f1bd-4b50-9825-fe5ebca86961 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
-
-    </div>
-  </div>
-
-</div>
-
 </div>
 
 </div>
@@ -14949,9 +14688,9 @@ print(var1 + var4)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>In general csv file are one of the most commonly used source data file formats. In CSV files, delimiters are used to seperate data values, although default delimiter is a comma, other data files can use a different delimiter.</strong></p>
-<p><strong>Your task would be to correctly create a dataframe from student_data_delim.csv using pandas that has same number of columns and rows as the student_data.csv</strong></p>
-<p><em>For more information, refer to <a href="https://www.geeksforgeeks.org/how-to-read-a-csv-file-to-a-dataframe-with-custom-delimiter-in-pandas/">https://www.geeksforgeeks.org/how-to-read-a-csv-file-to-a-dataframe-with-custom-delimiter-in-pandas/</a></em></p>
+<h2 id="Question-8:-Analyzing-Bias,-Variance,-and-Error-in-Regression-Models">Question 8: Analyzing Bias, Variance, and Error in Regression Models<a class="anchor-link" href="#Question-8:-Analyzing-Bias,-Variance,-and-Error-in-Regression-Models">&#182;</a></h2><p>Consider a dataset of oceanographic temperature and salinity measurements. The dataset has been loaded and split into training and testing sets. Three regression models have been applied to predict salinity based on temperature: Linear Regression, Polynomial Regression of degree 2, and Polynomial Regression of degree 5. The <code>calculate_metrics</code> function has been defined to compute bias, squared bias, variance, and error for each model.</p>
+<p>Analyze the performance metrics (bias, squared bias, variance, and error) for each regression model obtained by finishing <code>calculate_metrics</code> funtion. Compare and contrast the models in terms of their bias, variance, and overall predictive performance.</p>
+<p><em>For more information, refer to <strong>4.7  Tuning Model Complexity: Bias/Variance Dilemma</strong> section of <strong>Introduction to Machine Learning, 4th Edition, The MIT Press, 2020</strong> by Ethem Alpaydın. and <a href="https://numpy.org/doc/stable/reference/routines.statistics.html">numpy documentation</a> for various attributes.</em></p>
 
 </div>
 </div>
@@ -14961,29 +14700,70 @@ print(var1 + var4)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-python"><pre><span></span><span class="c1">#Custom delimiter</span>
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
 
-<span class="k">def</span> <span class="nf">check_delim</span><span class="p">(</span><span class="n">data_delim</span><span class="p">,</span> <span class="n">def_data</span><span class="p">):</span>
-  <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">def_data</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">data_delim</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s1">'Correct Solution'</span>
-  <span class="k">return</span> <span class="s1">'Wrong solution, please try again'</span>
+<span class="k">def</span> <span class="nf">calculate_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+    <span class="c1">############################################################</span>
+    <span class="c1">#Edit the following code</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">bias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">bias_squared</span> <span class="o">=</span> <span class="n">bias</span> <span class="o">*</span> <span class="n">bias</span>
+    <span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">bias_squared</span> <span class="o">+</span> <span class="n">variance</span>
+    <span class="c1">############################################################</span>
+    <span class="k">return</span> <span class="n">bias</span><span class="p">,</span> <span class="n">bias_squared</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">error</span>
 
-<span class="n">student_data_csv</span> <span class="o">=</span> <span class="s1">'https://raw.github.iu.edu/kjillela/datasets_CSCI-B455/main/assignment%202/question9/student_data.csv?token=GHSAT0AAAAAAAAAVS2XHS3FV5DA3SUTRNQKZOFCL6A'</span>
-<span class="n">student_data_delim</span> <span class="o">=</span> <span class="s1">'https://raw.github.iu.edu/kjillela/datasets_CSCI-B455/main/assignment%202/question9/student_data_delim.csv?token=GHSAT0AAAAAAAAAVS2XMA7YBOQNBOEB6DHQZOFCPWA'</span>
+<span class="c1"># Load the oceanographic dataset from the provided link</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/JakeMWu/single-linear-regression-CalCOFI-oceanographic-data/main/tempsal.csv"</span>
+<span class="n">oceanographic_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>  <span class="c1"># Use only the first 300 rows</span>
 
-<span class="c1">############################################################</span>
-<span class="c1">#Edit the following code</span>
+<span class="c1"># Remove rows with NaN values in 'T_degC' or 'Salnty'</span>
+<span class="n">oceanographic_data</span> <span class="o">=</span> <span class="n">oceanographic_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'T_degC'</span><span class="p">,</span> <span class="s1">'Salnty'</span><span class="p">])</span>
 
-<span class="c1">#Load data from the file student_data_delim</span>
-<span class="n">data_delim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">student_data_delim</span><span class="p">)</span>
+<span class="c1"># Use 'T_degC' as the feature and 'Salnty' as the target variable</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">oceanographic_data</span><span class="p">[</span><span class="s1">'T_degC'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">oceanographic_data</span><span class="p">[</span><span class="s1">'Salnty'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="c1">############################################################</span>
+<span class="c1"># Split the data into training and testing sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="n">check_delim</span><span class="p">(</span><span class="n">data_delim</span><span class="p">,</span> <span class="n">student_data_csv</span><span class="p">)</span>
+<span class="c1"># Linear Regression</span>
+<span class="n">linear_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">linear_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Polynomial Regression (Degree 2)</span>
+<span class="n">poly_model</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">LinearRegression</span><span class="p">())</span>
+<span class="n">poly_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Polynomial Regression (Degree 5)</span>
+<span class="n">poly_model5</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">LinearRegression</span><span class="p">())</span>
+<span class="n">poly_model5</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Calculate metrics for each model</span>
+<span class="n">bias_linear</span><span class="p">,</span> <span class="n">_</span> <span class="p">,</span><span class="n">variance_linear</span><span class="p">,</span> <span class="n">error_linear</span> <span class="o">=</span> <span class="n">calculate_metrics</span><span class="p">(</span><span class="n">linear_model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">bias_poly</span><span class="p">,</span> <span class="n">_</span> <span class="p">,</span><span class="n">variance_poly</span><span class="p">,</span> <span class="n">error_poly</span> <span class="o">=</span> <span class="n">calculate_metrics</span><span class="p">(</span><span class="n">poly_model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">bias_poly5</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">variance_poly5</span><span class="p">,</span> <span class="n">error_poly5</span> <span class="o">=</span> <span class="n">calculate_metrics</span><span class="p">(</span><span class="n">poly_model5</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1"># Print performance metrics</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Linear Regression:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bias: </span><span class="si">{</span><span class="n">bias_linear</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Variance: </span><span class="si">{</span><span class="n">variance_linear</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Error: </span><span class="si">{</span><span class="n">error_linear</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Polynomial Regression (Degree 2):"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bias: </span><span class="si">{</span><span class="n">bias_poly</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Variance: </span><span class="si">{</span><span class="n">variance_poly</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Error: </span><span class="si">{</span><span class="n">error_poly</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Polynomial Regression (Degree 5):"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bias: </span><span class="si">{</span><span class="n">bias_poly5</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Variance: </span><span class="si">{</span><span class="n">variance_poly5</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Error: </span><span class="si">{</span><span class="n">error_poly5</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15001,66 +14781,25 @@ print(var1 + var4)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Linear Regression:
+Bias: 0.003, Variance: 0.201, Error: 0.201
 
+Polynomial Regression (Degree 2):
+Bias: 0.007, Variance: 0.205, Error: 0.205
 
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;Wrong solution, please try again&#39;</pre>
-</div>
+Polynomial Regression (Degree 5):
+Bias: 0.001, Variance: 0.225, Error: 0.225
 
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Pandas can also help in filtering out the columns before loading allowing to omit any unneccesary columns.</strong></p>
-<p><strong>You task is to create a dataframe data_filtered which only contains the columns 'Name' and 'Grade' from</strong> 'student_data_csv'</p>
-<p><em>To have a closer look at different parameters of read_csv, refer to <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html</a></em></p>
-
+</pre>
 </div>
 </div>
+
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-python"><pre><span></span><span class="c1">#Column Selection</span>
 
-<span class="k">def</span> <span class="nf">check_filter</span><span class="p">(</span><span class="n">data_filtered</span><span class="p">):</span>
-  <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_filtered</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">'Name'</span><span class="p">,</span> <span class="s1">'Grade'</span><span class="p">]:</span>
-    <span class="k">return</span> <span class="s1">'Correct Solution'</span>
-  <span class="k">return</span> <span class="s1">'Wrong solution, please try again'</span>
-
-<span class="n">student_data_csv</span> <span class="o">=</span> <span class="s1">'https://raw.github.iu.edu/kjillela/datasets_CSCI-B455/main/assignment%202/question9/student_data.csv?token=GHSAT0AAAAAAAAAVS2XHS3FV5DA3SUTRNQKZOFCL6A'</span>
-
-<span class="c1">############################################################</span>
-<span class="c1">#Edit the following code</span>
-
-<span class="c1">#Load the data with only 'Name' and 'Grade' columns using student_data_csv</span>
-<span class="n">data_filtered</span> <span class="o">=</span>
-
-<span class="c1">############################################################</span>
-
-<span class="n">check_filter</span><span class="p">(</span><span class="n">data_filtered</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div>
@@ -15070,57 +14809,133 @@ print(var1 + var4)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Question-8:-Bayes-Classifier---Scikit-learn">Question 8: Bayes Classifier - Scikit learn<a class="anchor-link" href="#Question-8:-Bayes-Classifier---Scikit-learn">&#182;</a></h2><p><strong>Complete the code to split the MNIST dataset into training and testing sets of 80 and 20 percent respectively, create a Multinomial Naive Bayes classifier, fit the classifier on the training data, and make predictions on the test set. Set the random state for the train-test split to 99.
-Finish the code in the specified section to complete the tasks mentioned.</strong></p>
-<p><em>For more information, refer to <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html">https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html</a></em></p>
+<h3 id="Answer-the-following-question-with-a-brief-reasoning."><strong>Answer the following question with a brief reasoning.</strong><a class="anchor-link" href="#Answer-the-following-question-with-a-brief-reasoning.">&#182;</a></h3><p>Based on the results of bias, variance and error, explain which regression model is best suited for the above data and why</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Write you answer here...</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Question-9:-AIC-and-BIC-Evaluation-in-Regression-Analysis---Model-Performance">Question 9: AIC and BIC Evaluation in Regression Analysis - Model Performance<a class="anchor-link" href="#Question-9:-AIC-and-BIC-Evaluation-in-Regression-Analysis---Model-Performance">&#182;</a></h2><p>A regression analysis is performed in the following code using three different models: Linear Regression, Lasso Regression, and Ridge Regression. Calculate the AIC (Akaike Information Criterion) and BIC (Bayesian Information Criterion) for each model by completing the <code>calculate_aic_bic</code> function.</p>
+<p><em>For more information, refer to <strong>4.8  Tuning Model Complexity: Bias/Variance Dilemma</strong> section of <strong>Introduction to Machine Learning, 4th Edition, The MIT Press, 2020</strong> by Ethem Alpaydın and Lecture 05: Parametric Method slides from class.</em></p>
+<p><em>Further reading on <a href="https://vitalflux.com/aic-vs-bic-for-regression-models-formula-examples/">https://vitalflux.com/aic-vs-bic-for-regression-models-formula-examples/</a></em></p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">Ridge</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
 
-<span class="c1"># Load MNIST dataset</span>
-<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">'mnist_784'</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float32'</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>  <span class="c1"># Normalize pixel values to be between 0 and 1</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calculate_aic_bic</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">num_params</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">log_likelihood</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">mse</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+    <span class="c1">############################################################</span>
+    <span class="c1">#Edit the following code</span>
+    <span class="n">aic</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">num_params</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">log_likelihood</span>
+    <span class="n">bic</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">log_likelihood</span> <span class="o">+</span> <span class="p">(</span><span class="n">num_params</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)))</span>
+    <span class="c1">############################################################</span>
+    <span class="k">return</span> <span class="n">aic</span><span class="p">,</span> <span class="n">bic</span><span class="p">,</span> <span class="n">mse</span>
 
-<span class="c1">############################################################</span>
-<span class="c1">#Edit the following code</span>
+<span class="c1"># Generating sample data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="c1"># Split the dataset into training and testing sets of 80 and 20 percent respectively, make sure to set the random_state to 99</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span>
+<span class="c1"># Split the data into training and testing sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="c1"># Create a Multinomial Naive Bayes classifier</span>
-<span class="n">classifier</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
+<span class="c1"># Linear Regression</span>
+<span class="n">linear_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">linear_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">linear_predictions</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">linear_params</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Including the intercept</span>
+<span class="n">linear_aic</span><span class="p">,</span> <span class="n">linear_bic</span><span class="p">,</span> <span class="n">linear_mse</span> <span class="o">=</span> <span class="n">calculate_aic_bic</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">linear_predictions</span><span class="p">,</span> <span class="n">linear_params</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span>
 
-<span class="c1">#Fit the classifier</span>
+<span class="c1"># Lasso Regression</span>
+<span class="n">lasso_model</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">lasso_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">lasso_predictions</span> <span class="o">=</span> <span class="n">lasso_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">lasso_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">lasso_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Including the intercept</span>
+<span class="n">lasso_aic</span><span class="p">,</span> <span class="n">lasso_bic</span><span class="p">,</span> <span class="n">lasso_mse</span> <span class="o">=</span> <span class="n">calculate_aic_bic</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso_predictions</span><span class="p">,</span> <span class="n">lasso_params</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span>
 
+<span class="c1"># Ridge Regression</span>
+<span class="n">ridge_model</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">ridge_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">ridge_predictions</span> <span class="o">=</span> <span class="n">ridge_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">ridge_params</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Including the intercept</span>
+<span class="n">ridge_aic</span><span class="p">,</span> <span class="n">ridge_bic</span><span class="p">,</span> <span class="n">ridge_mse</span> <span class="o">=</span> <span class="n">calculate_aic_bic</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge_predictions</span><span class="p">,</span> <span class="n">ridge_params</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span>
 
-<span class="c1">############################################################</span>
+<span class="c1"># Create a table to print the values</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"Linear Regression"</span><span class="p">,</span> <span class="n">linear_aic</span><span class="p">,</span> <span class="n">linear_bic</span><span class="p">,</span> <span class="n">linear_mse</span><span class="p">],</span>
+         <span class="p">[</span><span class="s2">"Lasso Regression"</span><span class="p">,</span> <span class="n">lasso_aic</span><span class="p">,</span> <span class="n">lasso_bic</span><span class="p">,</span> <span class="n">lasso_mse</span><span class="p">],</span>
+         <span class="p">[</span><span class="s2">"Ridge Regression"</span><span class="p">,</span> <span class="n">ridge_aic</span><span class="p">,</span> <span class="n">ridge_bic</span><span class="p">,</span> <span class="n">ridge_mse</span><span class="p">]]</span>
 
-<span class="c1"># Make predictions on the test set</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Calculate accuracy</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Accuracy:"</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Model"</span><span class="p">,</span> <span class="s2">"AIC"</span><span class="p">,</span> <span class="s2">"BIC"</span><span class="p">,</span> <span class="s2">"MSE"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">"grid"</span><span class="p">))</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+-------------------+---------+---------+----------+
+| Model             |     AIC |     BIC |      MSE |
++===================+=========+=========+==========+
+| Linear Regression | 68.2704 | 74.2448 | 0.975938 |
++-------------------+---------+---------+----------+
+| Lasso Regression  | 67.9644 | 73.9388 | 0.96112  |
++-------------------+---------+---------+----------+
+| Ridge Regression  | 68.2765 | 74.2509 | 0.976235 |
++-------------------+---------+---------+----------+
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15130,35 +14945,190 @@ Finish the code in the specified section to complete the tasks mentioned.</stron
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Question-9:-Linear-regression">Question 9: Linear regression<a class="anchor-link" href="#Question-9:-Linear-regression">&#182;</a></h2><p><strong>Your task to implement a linear regression model using scikit learn package of python. Please follow the below steps</strong></p>
-<ul>
-<li>Load the data using the variable 'linear_data'</li>
-<li>Split the dataset into training and testing sets. Target Variable is 'Chance of Admit'.</li>
-<li>Use linear regression model from scikit learn package</li>
-<li>Evaluate the model using mean squared error (MSE) for the test set and the print the value</li>
-<li>Run 3 experiments by varying train-test split percentages, random state and other parameters, for more refer <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html</a></li>
-<li>Choose the experiment that has least MSE and find the coefficients and intercept for that corresponding Linear Regression model.</li>
-</ul>
-<p><strong>Hint:</strong></p>
-<p>Since, its linear regression the equation would be in the following format,</p>
-<p>Y = β₀ + β₁ <em> X₁ + β₂ </em> X₂ + ... + βₙ * Xₙ + ɛ</p>
-<p>Using scikit learn we can find the slopes/coefficients of each feature i.e. β₁, β₂, ..., βₙ and intercept β₀.</p>
-<p><em>For more information, refer to <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html</a></em></p>
+<h3 id="Answer-the-following-question-with-a-brief-reasoning."><strong>Answer the following question with a brief reasoning.</strong><a class="anchor-link" href="#Answer-the-following-question-with-a-brief-reasoning.">&#182;</a></h3><p>Determine the best model based on the AIC and BIC results. Provide reasoning for your choice.</p>
 
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Write you answer here...</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Question-10:-Linear-regression-with--k-fold-cross-validation">Question 10: Linear regression with  k-fold cross validation<a class="anchor-link" href="#Question-10:-Linear-regression-with--k-fold-cross-validation">&#182;</a></h2><p>Your task to implement a linear regression with using k-fold cross validation model using scikit learn package of python. Please follow the below instructions to complete the exercise.</p>
+<ol>
+<li><p><strong>Split the Data:</strong></p>
+<ul>
+<li>Use <code>train_test_split</code> to split the data into training, validation, and test sets with a test size of 20% and a random state of 99.</li>
+</ul>
+</li>
+<li><p><strong>Set Up K-Fold Cross-Validation:</strong></p>
+<ul>
+<li>Set the number of folds for cross-validation to 5.</li>
+<li>Initialize a KFold cross-validator with shuffling and a random state of 99.</li>
+</ul>
+</li>
+<li><p><strong>Initialize Linear Regression Model:</strong></p>
+<ul>
+<li>Create an instance of the linear regression model.</li>
+</ul>
+</li>
+<li><p><strong>Perform K-Fold Cross-Validation:</strong></p>
+<ul>
+<li>Use a loop to iterate through the folds generated by KFold.</li>
+<li>For each fold, train the model on the training data, make predictions on both training and validation sets.</li>
+<li>For each fold, calculate mean squared errors.</li>
+<li>Append the errors to lists for further analysis.</li>
+</ul>
+</li>
+<li><p><strong>Fit the Model on the Entire Training + Validation Set:</strong></p>
+<ul>
+<li>After cross-validation, fit the model on the entire training + validation set to utilize all available data for training.</li>
+</ul>
+</li>
+<li><p><strong>Make Predictions on the Test Set:</strong></p>
+<ul>
+<li>Use the trained model to make predictions on the test set.</li>
+</ul>
+</li>
+</ol>
+<p>For more information, refer <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html">https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html</a> and <a href="https://www.kaggle.com/code/jnikhilsai/cross-validation-with-linear-regression">https://www.kaggle.com/code/jnikhilsai/cross-validation-with-linear-regression</a></p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="c1"># Load the dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'https://raw.githubusercontent.com/KrishnaTejaJ/datasets-CSCI-B455/main/assignment%202/question12/linear_data.csv'</span><span class="p">)</span>
+
+<span class="c1"># Extract features and target variable</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'Chance of Admit'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Chance of Admit'</span><span class="p">]</span>
+
+<span class="c1"># Lists to store performance metrics for each fold</span>
+<span class="n">train_errors</span><span class="p">,</span> <span class="n">val_errors</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="c1">############################################################</span>
+<span class="c1">#Write the code for the corresponding instructions mentioned</span>
+
+<span class="c1"># Split the data into training, validation, and test sets based on the provided instructions</span>
+<span class="n">X_train_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
+
+<span class="c1"># Set the number of folds for cross-validation</span>
+<span class="n">k_folds</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Initialize KFold cross-validator</span>
+<span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">k_folds</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
+
+<span class="c1"># Initialize linear regression model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Perform k-fold cross-validation</span>
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">val_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X_train_val</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span> <span class="o">=</span> <span class="n">X_train_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X_train_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">val_index</span><span class="p">]</span>
+    <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">y_train_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y_train_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">val_index</span><span class="p">]</span>
+
+    <span class="c1"># Fit the model on the training data</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+    <span class="c1"># Make predictions on the training and validation sets</span>
+    <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">y_val_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+
+    <span class="c1"># Calculate mean squared error for training and validation sets</span>
+    <span class="n">train_error</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)</span>
+    <span class="n">val_error</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_val_pred</span><span class="p">)</span>
+
+    <span class="c1"># Append errors to the lists</span>
+    <span class="n">train_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_error</span><span class="p">)</span>
+    <span class="n">val_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val_error</span><span class="p">)</span>
+
+<span class="c1"># Fit the model on the entire training + validation set</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_val</span><span class="p">,</span> <span class="n">y_train_val</span><span class="p">)</span>
+
+<span class="c1"># Make predictions on the test set</span>
+<span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1">############################################################</span>
+
+<span class="c1"># Calculate mean squared error for the test set</span>
+<span class="n">test_error</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">)</span>
+
+<span class="c1"># Calculate the average training and validation errors</span>
+<span class="n">avg_train_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_errors</span><span class="p">)</span>
+<span class="n">avg_val_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">val_errors</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Average Training Error: </span><span class="si">{</span><span class="n">avg_train_error</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Average Validation Error: </span><span class="si">{</span><span class="n">avg_val_error</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Test Error: </span><span class="si">{</span><span class="n">test_error</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Average Training Error: 0.00390418409025593
+Average Validation Error: 0.004228318833330217
+Test Error: 0.004303691767806366
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-python"><pre><span></span><span class="n">linear_data</span> <span class="o">=</span> <span class="s1">'https://raw.github.iu.edu/kjillela/datasets_CSCI-B455/main/assignment%202/question12/linear_data.csv?token=GHSAT0AAAAAAAAAVS2X6SYIKNYV2KLPIHIOZOFCWOQ'</span>
-
-<span class="c1">#Write your code here</span>
+<div class=" highlight hl-python"><pre><span></span>
 </pre></div>
 
      </div>
